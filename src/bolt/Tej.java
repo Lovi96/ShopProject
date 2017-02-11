@@ -35,6 +35,10 @@ public class Tej {
 		return urtartalom;
 	}
 
+	public long getVonalKod() {
+		return vonalKod;
+	}
+
 	public String getGyarto() {
 		return gyarto;
 	}
