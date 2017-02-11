@@ -5,31 +5,27 @@ import java.util.Date;
 /**
  * Created by Lovi on 2017. 02. 11. @ 21:31.
  */
-public class Tej {
-	private long vonalKod;
+public abstract class Tej {
+	protected long vonalKod;
 	private final int LITER = 1;
 	private final double FELLITER = 0.5;
 	private final double POHAR = 0.25;
 	private final double ZSIROS = 2.8;
 	private final double FELZSIROS = 1.5;
-	private int urtartalom;
-	private String gyarto;
-	private Date szavatossagiIdo;
-	private double zsirtartalom;
-	private long ar;
+	protected int urtartalom;
+	protected String gyarto;
+	protected Date szavatossagiIdo;
+	protected double zsirtartalom;
 
-	public Tej(int urtartalom, String gyarto, Date szavatossagiIdo, double zsirtartalom, long ar) {
+	public Tej(long vonalKod,int urtartalom, String gyarto, Date szavatossagiIdo, double zsirtartalom) {
 		this.urtartalom = urtartalom;
 		this.gyarto = gyarto;
 		this.szavatossagiIdo = szavatossagiIdo;
 		this.zsirtartalom = zsirtartalom;
-		this.ar = ar;
+		this.vonalKod = vonalKod;
 	}
 
-	public boolean joMeg() {
-		Date jelenIdo = new Date();
-		return !jelenIdo.after(this.getSzavatossagiIdo());
-	}
+
 
 	public int getUrtartalom() {
 		return urtartalom;
@@ -51,12 +47,9 @@ public class Tej {
 		return zsirtartalom;
 	}
 
-	public long getAr() {
-		return ar;
-	}
-
 	public String toString() {
 		return "Az " + this.getUrtartalom() + "liter űrtaralmú " + this.getGyarto() + " tej szavatossága " +
-				this.getSzavatossagiIdo() + ", zsirtartalma" + this.getZsirtartalom() + " ára pedig " + this.getAr();
+				this.getSzavatossagiIdo() + ", zsirtartalma" + this.getZsirtartalom() +
+				" vonalkódja" + this.getVonalKod();
 	}
 }
