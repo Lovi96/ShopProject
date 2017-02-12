@@ -43,7 +43,7 @@ public class Bolt {
 	}
 
 	public boolean vanMegTej() {
-		return this.elelmiszerpult.containsKey(TartosTej.class);
+		return this.elelmiszerpult.containsKey(Tej.class);
 	}
 
 
