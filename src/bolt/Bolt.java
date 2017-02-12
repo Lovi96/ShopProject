@@ -4,6 +4,7 @@ import bolt.aruk.Elelmiszer;
 import bolt.aruk.Sajt;
 import bolt.aruk.Tej;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -47,6 +48,26 @@ public class Bolt implements Shop {
 
 	public String getTulajdonos() {
 		return tulajdonos;
+	}
+
+	@Override
+	public void vasarol(Aru a, long mennyiseg) {
+
+	}
+
+	@Override
+	public void nyit() {
+
+	}
+
+	@Override
+	public void zar() {
+
+	}
+
+	@Override
+	public File getLog() {
+		return null;
 	}
 
 	public boolean vanMegTej() {
@@ -147,9 +168,8 @@ public class Bolt implements Shop {
 
 		@Override
 		public Object next() {
-			HashSet keyList = (HashSet) elelmiszerpult.keySet();
-			Long[] keyListAsArray = (Long[]) keyList.toArray();
-			return keyListAsArray[indexNum++];
+			Aru a = (Aru) i.next();
+			return new Aru(a.getVonalKod(),a.getGyarto()){};
 		}
 	}
 }

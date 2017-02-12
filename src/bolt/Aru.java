@@ -8,6 +8,12 @@ public abstract class Aru {
 		this.vonalKod = vonalKod;
 		this.gyarto = gyarto;
 	}
+	public Long getVonalKod(){
+		return vonalKod;
+	}
+	public String getGyarto(){
+		return gyarto;
+	}
 
 	protected Long vonalKod;
 	protected String gyarto;

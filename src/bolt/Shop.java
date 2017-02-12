@@ -1,5 +1,6 @@
 package bolt;
 
+import java.io.File;
 import java.util.Iterator;
 
 /**
@@ -10,4 +11,8 @@ public interface Shop {
 	String getNev();
 	String getCim();
 	String getTulajdonos();
+	void vasarol(Aru a,long mennyiseg);
+	void nyit();
+	void zar();
+	File getLog();
 }
