@@ -169,6 +169,7 @@ public class Bolt implements Shop {
 		@Override
 		public Object next() {
 			Aru a = (Aru) i.next();
+			indexNum++;
 			return new Aru(a.getVonalKod(),a.getGyarto()){};
 		}
 	}

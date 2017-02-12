@@ -88,7 +88,7 @@ public class BoltLogger implements Log, Logger {
 
 		@Override
 		public Date getDatum() {
-			return null;
+			return datum;
 		}
 
 		@Override
