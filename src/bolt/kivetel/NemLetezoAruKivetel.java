@@ -8,7 +8,7 @@ import bolt.BoltKivetel;
 public class NemLetezoAruKivetel extends BoltKivetel {
 
 	public NemLetezoAruKivetel(String message){
-
+		System.out.println("Nem létező árut akarsz megvenni!");
 	}
 
 }

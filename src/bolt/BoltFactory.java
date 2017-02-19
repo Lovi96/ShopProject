@@ -21,35 +21,35 @@ public class BoltFactory {
 	}
 
 	public Tej ujFelzsirosTartosTej(Long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo) {
-		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, 1.5);
+		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, Tej.FELZSIROS);
 	}
 
 	public Tej ujZsirosTartosTej(Long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo) {
-		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, 2.8);
+		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, Tej.ZSIROS);
 	}
 
 	public Tej ujZsirosLiteresTartosTej(Long vonalKod, String gyarto, Date szavatossagiIdo) {
-		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, 1, 2.8);
+		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, Tej.LITER, Tej.ZSIROS);
 	}
 
 	public Tej ujFelzsirosLiteresTartosTej(Long vonalKod, String gyarto, Date szavatossagiIdo) {
-		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, 1, 1.5);
+		return new TartosTej(vonalKod, gyarto, szavatossagiIdo, Tej.LITER, Tej.FELZSIROS);
 	}
 
 	public Tej ujFelzsirosFeltartosTej(Long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo) {
-		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, 1.5);
+		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, Tej.FELZSIROS);
 	}
 
 	public Tej ujFelzsirosLiteresFeltartosTej(Long vonalKod, String gyarto, Date szavatossagiIdo) {
-		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, 1, 1.5);
+		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, Tej.LITER, Tej.FELZSIROS);
 	}
 
 	public Tej ujZsirosFeltartosTej(Long vonalKod, int urtartalom, String gyarto, Date szavatossagiIdo) {
-		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, 2.8);
+		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, urtartalom, Tej.ZSIROS);
 	}
 
 	public Tej ujZsirosLiteresFeltartosTej(Long vonalKod, String gyarto, Date szavatossagiIdo) {
-		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, 1, 2.8);
+		return new FeltartosTej(vonalKod, gyarto, szavatossagiIdo, Tej.LITER, Tej.ZSIROS);
 	}
 
 

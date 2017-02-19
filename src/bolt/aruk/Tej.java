@@ -6,11 +6,11 @@ import java.util.Date;
  * Created by Lovi on 2017. 02. 11. @ 21:31.
  */
 public abstract class Tej extends Elelmiszer{
-	public final int LITER = 1;
-	public final double FELLITER = 0.5;
-	public final double POHAR = 0.25;
-	public final double ZSIROS = 2.8;
-	public final double FELZSIROS = 1.5;
+	public static final int LITER = 4;
+	public static final int FELLITER = 2;
+	public static final int POHAR = 1;
+	public static final double ZSIROS = 2.8;
+	public static final double FELZSIROS = 1.5;
 	protected int urtartalom;
 	protected double zsirtartalom;
 

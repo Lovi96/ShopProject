@@ -7,6 +7,6 @@ import bolt.BoltKivetel;
  */
 public class TulSokLevonasKivetel extends BoltKivetel {
 	public TulSokLevonasKivetel(String message) {
-
+		System.out.println("Túl sokat vontál le!");
 	}
 }

@@ -27,10 +27,11 @@ public class Bolt implements Shop {
 		this.tulajdonos = tulajdonos;
 	}
 
+	private boolean nyitvaVan = true;
 	private String nev;
 	private String cim;
 	private String tulajdonos;
-	private Hashtable<Long, Long> elelmiszerpult = new Hashtable<>();
+	private Hashtable<Long, BoltBejegyzes> elelmiszerpult = new Hashtable<>();
 
 
 	@Override
@@ -57,12 +58,12 @@ public class Bolt implements Shop {
 
 	@Override
 	public void nyit() {
-
+	nyitvaVan = true;
 	}
 
 	@Override
 	public void zar() {
-
+	nyitvaVan = false;
 	}
 
 	@Override
@@ -74,7 +75,6 @@ public class Bolt implements Shop {
 		return this.elelmiszerpult.containsKey(Tej.class);
 	}
 
-
 	public boolean vanMegSajt() {
 		return this.elelmiszerpult.containsKey(Sajt.class);
 	}
@@ -83,20 +83,21 @@ public class Bolt implements Shop {
 		return this.elelmiszerpult.contains(c);
 	}
 
-
 	public void vasarolElelmiszert(Long vonalKod, long mennyiseg) {
 		this.elelmiszerpult.remove(vonalKod, mennyiseg);
 	}
 
 	public void feltoltUjElelmiszerrel(Elelmiszer e, long mennyiseg, long ar) {
-		//TODO: figure out wtf is up with this.
+		//this.elelmiszerpult.put(e.getVonalKod(),mennyiseg);
+		BoltBejegyzes bejegyzes = new BoltBejegyzes(e,mennyiseg,ar);
+		Elelmiszer ujElelmiszer = bejegyzes.getE();
+		long vonalKod = ujElelmiszer.getVonalKod();
+		elelmiszerpult.put(vonalKod,bejegyzes);
 	}
 
 	public void feltoltElelmiszerrel(Long vonalKod, long mennyiseg) {
-		if(this.elelmiszerpult.containsKey(vonalKod)) {
-			this.elelmiszerpult.replace(vonalKod, this.elelmiszerpult.get(vonalKod),
-					this.elelmiszerpult.get(vonalKod) + mennyiseg);
-		} else this.elelmiszerpult.put(vonalKod, mennyiseg);
+		BoltBejegyzes bejegyzes = elelmiszerpult.get(vonalKod);
+		bejegyzes.adMennyiseg(mennyiseg);
 	}
 
 	public void torolElelmiszert(Long vonalKod) {
@@ -105,41 +106,41 @@ public class Bolt implements Shop {
 
 
 	public class BoltBejegyzes {
-		private Tej t;
-		private int mennyiseg;
-		private int ar;
+		private Elelmiszer e;
+		private long mennyiseg;
+		private long ar;
 
-		public BoltBejegyzes(Tej t, int mennyiseg, int ar) {
-			this.t = t;
+		public BoltBejegyzes(Elelmiszer e, long mennyiseg, long ar) {
+			this.e = e;
 			this.mennyiseg = mennyiseg;
 			this.ar = ar;
 		}
 
-		public Tej getT() {
-			return t;
+		public Elelmiszer getE() {
+			return e;
 		}
 
-		public void setT(Tej t) {
-			this.t = t;
+		public void setE(Elelmiszer e) {
+			this.e = e;
 		}
 
-		public int getMennyiseg() {
+		public long getMennyiseg() {
 			return mennyiseg;
 		}
 
-		public void setMennyiseg(int mennyiseg) {
+		public void setMennyiseg(long mennyiseg) {
 			this.mennyiseg = mennyiseg;
 		}
 
-		public void adMennyiseg(int mennyiseg) {
+		public void adMennyiseg(long mennyiseg) {
 			this.mennyiseg = this.mennyiseg + mennyiseg;
 		}
 
-		public void levonMennyiseg(int mennyiseg) {
+		public void levonMennyiseg(long mennyiseg) {
 			this.mennyiseg = this.mennyiseg - mennyiseg;
 		}
 
-		public int getAr() {
+		public long getAr() {
 			return ar;
 		}
 
